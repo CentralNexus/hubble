@@ -1,0 +1,9 @@
+hubble:
+    image: centralnexus/hubble
+    ports:
+     - "1463:9200"
+     - "1465:9292"
+    command: /app/bin/logstash agent --config /app/conf.d --log /app/log/logstash.log -- web
+    volumes:
+     - conf.d:/app/conf.d
+     - log:/app/log
